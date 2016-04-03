@@ -2,17 +2,17 @@
 # Bing's photo of the day backgroud with a fade to black at the bottom of the screen to make a more usable space for other widgets.
 
 command: """
-curl -s 'http://www.bing.com/HPImageArchive.aspx?format=xml&idx=0&n=1&mkt=en-US' | grep -E -m 1 -o '<url>(.*)</url>' | sed -e 's,.*<url>\([^<]*\)</url>.*,\1,g'
+curl -s 'http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1'
 """
 
 # Set the refresh frequency.
-refreshFrequency: '1h'
+refreshFrequency: '8h'
 
 style: """
   top: 0%
   left: 0%
   color: #fff
-  
+
   .wallpaper
     position: absolute
     z-index: -10000
@@ -24,9 +24,14 @@ style: """
     z-index: -10000
 
   .myimage
-    width: 1920px
+    width: 1280px
+    height: 800px
     position: absolute
     z-index: -10000
+
+  .copyright
+    margin-right 20px
+    font-size: 20px
 
   .darker
     width: 1920px
@@ -49,10 +54,10 @@ render: -> """
 update: (output, domEl) ->
   mydiv = $(domEl).find('#background')
   html = ''
-  outputhtml = output.replace("<url>", "").replace("</url>", "").replace(/(?:\r\n|\r|\n)/g, '').trim()
-  html += "<div class='wallpaper'> "
-  html += "<img src='http://www.bing.com" +outputhtml+ "' class='myimage' >"
+  url=JSON.parse(output).images[0].url
+  html += "<div class='wallpaper'>"
+  html += "<img src='" +url+ "' class='myimage' >"
   html += "</div>"
-  
+
   # Set the output
   mydiv.html(html)
