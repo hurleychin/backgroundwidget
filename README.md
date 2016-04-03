@@ -12,8 +12,8 @@ To be used with Übersicht software which can be found [Here](http://tracesof.ne
 
 #与原版本相比的改动之处
 ###1.图片源换成了cn.bing.com
-###2.地址简析换成json方式，获取的图片像素为1920*1080 (原为1366*768)
-###3.调整了图片显示的高宽比（目前为1280*800,适合mbp）
+###2.地址简析换成json方式，获取的图片像素为1920x1080（原为1366x768）
+###3.调整了图片显示的高宽比（目前为1280x800,适合mbp）
 
 #TODO
 ###添加图片介绍文字
