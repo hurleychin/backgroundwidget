@@ -10,6 +10,8 @@ Example with other widgets on:
 
 To be used with Übersicht software which can be found [Here](http://tracesof.net/uebersicht/)
 
+***
+
 ###与原版本相比的改动之处
 1. 图片源换成了cn.bing.com
 2. 地址简析换成json方式，获取的图片像素为1920x1080（原为1366x768）
